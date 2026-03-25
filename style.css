@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --netflix-red: #e50914;
+    --dark-bg: #141414;
+    --light-text: #ffffff;
+    --secondary-text: #808080;
+}
+
+body {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a1a 100%);
+    color: var(--light-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+main {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--netflix-red), #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profiles a {
+    text-decoration: none;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: filter 0.3s ease;
+}
+
+figure img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.profile figure img:hover {
+    transform: scale(1.05);
+    transition: 0.5s ease-in-out;
+    border-color: var(--netflix-red);
+}
+
+figcaption {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-text);
+    transition: color 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+
+/* Responsivo para tablets */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .profiles {
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    figure img {
+        width: 120px;
+        height: 120px;
+    }
+
+    figcaption {
+        font-size: 0.95rem;
+    }
+}
+
+/* Responsivo para mobile */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .profiles {
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    figure img {
+        width: 100px;
+        height: 100px;
+    }
+
+    figcaption {
+        font-size: 0.85rem;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+}
+
+/* Efeito ao focar com teclado (acessibilidade) */
+.profiles a:focus {
+    outline: none;
+}
+
+.profiles a:focus figure img {
+    
+    box-shadow: 0 12px 24px rgba(229, 9, 20, 0.4);
+}
