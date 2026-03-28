@@ -71,8 +71,9 @@ h1 {
 }
 
 .profiles ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2.5rem;
     list-style: none;
     padding: 0;
@@ -163,7 +164,7 @@ figcaption {
 
     .profiles ul {
         gap: 1.875rem;
-        grid-template-columns: repeat(2, minmax(7.5rem, 1fr));
+        justify-content: space-around;
     }
 
     figure img {
@@ -185,7 +186,6 @@ figcaption {
 
     .profiles ul {
         gap: 1.25rem;
-        grid-template-columns: repeat(2, minmax(6.25rem, 1fr));
         justify-content: space-around;
     }
 
